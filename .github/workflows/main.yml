@@ -1,3 +1,4 @@
+
 name: Generate Podcast Feeds
 
 on:
@@ -10,8 +11,13 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
+
       - name: Run Feed Generator
-        uses: kukeitchanahan/podcast-generator@main
+        uses: KukeitChanahan/podcast-generator@main
+        with:
+          name: "KukeitChanahan"
+          email: "kukeit.ch@gmail.com"
