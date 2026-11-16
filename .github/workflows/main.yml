@@ -13,23 +13,5 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Generate Feed
-        run: |
-          pip install pyyaml
-          python feed.py
-
-      - name: Commit and Push XML
-        run: |
-          git config user.name "KukeitChanahan"
-          git config user.email "kukeit.ch@gmail.com"
-          git add podcast.xml
-          if ! git diff --cached --quiet; then
-            git commit -m "Update podcast feed"
-            git push
-          fi
+      - name: Run Feed Generator
+        uses: kukeitchanahan/podcast-generator@main
